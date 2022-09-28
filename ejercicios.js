@@ -94,6 +94,33 @@ function EliminaCaracteres(texto, patron) {
   }
   return cadena;
 }
+/* 9) Programa una función que obtenga un numero aleatorio entre 501 y 600. */
+ const NroAleatorio = () =>  Math.floor( (Math.random() * (600-501 +1) + 501) );
+
+/* 10) Programa una función que reciba un número y evalúe si es capicúa o
+   no(que se lee igual en un sentido que en otro), pe.miFuncion(2002) devolverá true. */
+function EsNroCapicua(nro=undefined) {
+  if(typeof nro === 'string') return console.warn("No se permite Letras ingrese numero porfavor");
+  if (!nro) return console.warn("Inserte numero..");
+  if (nro < 0) return console.warn("El numero tiene que mayor a cero..");
+  let nro2 = nro.toString();  
+  let evaluar = nro2.split("").reverse().join("");
+  if (parseInt(evaluar, 10) === nro) { return true } else{ return false };
+}
+
+/* 11) Programa una función que calcule el factorial de un número(El factorial de
+    un entero positivo n, se define como el producto de todos los números enteros
+    positivos desde 1 hasta n), pe.miFuncion(5) devolverá 120. */
+
+function NroFactorial(nro) {
+  if (typeof nro === 'number' && nro > 0) { 
+    let valor = 1;
+    for (let i = 1; i <= nro; i++) valor = valor * i;
+    return valor;
+  }
+  return console.warn("El dato NO! es correcto...");
+} 
+
 
 export const Ejercicios_Yon = {
   TextoRecortado,
@@ -103,4 +130,7 @@ export const Ejercicios_Yon = {
   ContarPalabras,
   FrasePolindromo,
   EliminaCaracteres,
+  NroAleatorio,
+  EsNroCapicua,
+  NroFactorial
 };
