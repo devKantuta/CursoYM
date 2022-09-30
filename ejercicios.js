@@ -121,6 +121,40 @@ function NroFactorial(nro) {
   return console.warn("El dato NO! es correcto...");
 } 
 
+/* 12) Programa una función que determine si un número es primo
+    (aquel que solo es divisible por sí mismo y 1) o no, pe.miFuncion(7) 
+    devolverá true. */
+function EsPrimo(nro=undefined) {
+  if (typeof nro === 'string' || !nro) return console.info('Dato incorrecto.');
+  if (nro > 1 && typeof nro === 'number') {
+    for (let i = 2; i < nro; i++){
+      if (nro % i === 0) return false;
+    }
+  } 
+  return (nro!==1);
+}
+
+/* 13) Programa una función que determine si un número es par o impar,
+    pe.miFuncion(29) devolverá Impar. */
+function EsParImpar(nro) {
+  return (nro > 0 && typeof nro === 'number') ?
+    ((nro % 2 == 0) ? console.info(`El ${nro} es Par`) :
+      console.info(`El ${nro} es Impar`)) :
+    console.info(`El ${nro} No es un dato correcto`);
+  
+}
+/* 14) Programa una función para convertir grados Celsius a Fahrenheit 
+    y viceversa, pe.miFuncion(0, "C") devolverá 32°F. */
+function ConvertirGrados(nro = undefined, grados = "") {
+  if (typeof nro === 'string' || nro === undefined)
+    return console.info(`datos ${nro} Incorrectos...`);
+  if (typeof grados === "number" || grados === "")
+    return console.info(`datos ${grados} Incorrectos...`);
+  if (grados.toLowerCase() === "f")
+    return console.info(`${(nro * 9) / 5 + 32}°F`);
+  if (grados.toLowerCase() === "c")
+    return console.info(`${((nro - 32) * 5) / 9}°C`);
+}
 
 export const Ejercicios_Yon = {
   TextoRecortado,
