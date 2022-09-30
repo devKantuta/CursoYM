@@ -156,6 +156,62 @@ function ConvertirGrados(nro = undefined, grados = "") {
     return console.info(`${((nro - 32) * 5) / 9}°C`);
 }
 
+
+
+/* 15) Programa una función para convertir números de base binaria a 
+decimal y viceversa, pe.miFuncion(100, 2) devolverá 4 base 10. */
+function ConverirBinarioDecimal(nro = undefined, base = undefined) {
+  if (nro === undefined || typeof nro === "string")
+    return console.info(`datos ${nro} Incorrectos...`);
+  if ( typeof base == 'string' || base == undefined)
+    return console.info(`datos ${base} Incorrectos...`);
+  if (base === 2 || base === 10) {
+    let a = nro.toString();
+    return base === 2
+      ? console.info(parseInt(a, 2) + ` en base 10 `)
+      : console.info(nro.toString(2) + ` en  base 2 `);  
+  } 
+  
+  return console.info(`${base} No es base 10 ó 2...`);
+}
+// FORMA #2
+function Bin(n = undefined) {
+  let a = n.toString();
+  let sum = 0;
+  for (let i = 0; i < a.length; i++) {
+    sum = sum + a[i] * 2 ** (a.length - 1 - i);
+  }
+  return sum;
+}
+
+/* 16) Programa una función que devuelva el monto final después de aplicar
+ un descuento a una cantidad dada, pe.miFuncion(1000, 20) devolverá 800. */
+function MontoDescuento(monto = undefined, descuento = undefined) {
+  if (monto === undefined || typeof monto === "string")
+    return console.info(`datos ${monto} Incorrectos...`);
+  if (typeof descuento == "string" || descuento == undefined)
+    return console.info(`datos ${descuento} Incorrectos...`);
+  let des = monto * (descuento / 100);
+  return console.info(`El Descuento es : ${des} su saldo es: ${monto - des} `);
+}
+
+/* 17) Programa una función que dada una fecha válida determine cuantos años han 
+pasado hasta el día de hoy, pe.miFuncion(new Date(1984, 4, 23)) devolverá 35 años(en 2020). */
+function CuantosAniosPasado(fecha=new Date()) {
+  let fecha_A = new Date();
+  let fecha_B = fecha.getFullYear();
+  return fecha_B > 0 ? fecha_A.getFullYear() - fecha.getFullYear() :
+  `Los siento la fecha ${fecha_B} no es valida... `;
+}
+
+
+
+
+
+
+
+
+
 export const Ejercicios_Yon = {
   TextoRecortado,
   ArrayTextoSeparado,
